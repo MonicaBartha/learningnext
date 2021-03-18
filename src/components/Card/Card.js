@@ -7,21 +7,22 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import PropTypes from 'prop-types';
 
-const InfoCard = ({title, text}) => {
-
+const InfoCard = ({ title, text }) => {
   return (
     <Container maxWidth="xs">
       <Card data-testid="Card">
         <CardContent data-testid="CardContent">
-          <Typography data-testid="TitleCard" variant="h3">{title}</Typography>
-          <Typography data-testid="ParagraphCard" variant="body1">{text}</Typography>
+          <Typography data-testid="TitleCard" variant="h3">
+            {title}
+          </Typography>
+          <Typography data-testid="ParagraphCard" variant="body1">
+            {text}
+          </Typography>
         </CardContent>
         <CardActions data-testid="CardActions">
-          <Button 
-            data-testid="CardButton"
-            color="primary" variant="contained">
+          <Button data-testid="CardButton" color="primary" variant="contained">
             Apretame
-          </Button> 
+          </Button>
         </CardActions>
       </Card>
     </Container>
@@ -30,6 +31,7 @@ const InfoCard = ({title, text}) => {
 
 InfoCard.propTypes = {
   title: PropTypes.string.isRequired,
-  text: PropTypes.string.isRequired
-}
+  text: PropTypes.string.isRequired,
+};
+
 export default InfoCard;

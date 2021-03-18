@@ -1,16 +1,21 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
-import Header from '../components/Header/Header';
+import Header from '../Header/Header';
+import PropTypes from 'prop-types';
 
 const Layout = ({children}) => {
   return (
     <>
       <Header />
-      <Container maxWidth="lg">
+      <Container data-testid="LayoutContainer" maxWidth="lg">
         {children}
       </Container>
     </>
   );
 };
+
+Layout.propTypes = {
+  children: PropTypes.node.isRequired
+}
 
 export default Layout;

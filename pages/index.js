@@ -1,12 +1,12 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import theme from '../src/theme.js'
-import Layout from '../src/components/Layout';
+import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import TextField from '@material-ui/core/TextField';
 import MenuItem from '@material-ui/core/MenuItem';
-import Button from '@material-ui/core/Button';
+import Layout from '../src/components/Layout';
+import theme from '../src/theme';
 
 const useStyles = makeStyles({
   root: {
@@ -16,51 +16,49 @@ const useStyles = makeStyles({
     },
   },
   selectTitle: {
-    marginTop: '20px'
+    marginTop: '20px',
   },
   textField: {
-    marginRight: '30px'
+    marginRight: '30px',
   },
   searchBtn: {
     marginTop: '15px',
-    marginLeft: '20px'
-  }
+    marginLeft: '20px',
+  },
 });
 
-
-export default function Home({categories}) {
-
+export default function Home({ categories }) {
   const classes = useStyles();
 
   const [search, setSearch] = React.useState({
     ingredient: '',
-    category: ''
+    category: '',
   });
- 
-  const handleChange = e => {
+
+  const handleChange = (e) => {
     setSearch({
       ...search,
-      [e.target.name] : e.target.value 
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
-  const handleOnSubmit = e => {
+  const handleOnSubmit = (e) => {
     e.preventDefault();
-
-  }
+  };
 
   return (
     <>
-    <Layout>
+      <Layout>
         <Typography variant="h1">Cocktail Recipes</Typography>
         <Grid className={classes.root} container spacing={1}>
-        <form onSubmit={handleOnSubmit}>
-            <TextField 
+          <form onSubmit={handleOnSubmit}>
+            <TextField
               name="ingredient"
-              className={classes.textField} 
-              id="standard-basic" 
+              className={classes.textField}
+              id="standard-basic"
               label="Search by ingredient"
-              onChange={handleChange} />
+              onChange={handleChange}
+            />
             <TextField
               name="category"
               id="standard-select-currency"
@@ -70,30 +68,33 @@ export default function Home({categories}) {
               value="category"
               onChange={handleChange}
             >
-              {categories.drinks.map( item => (
+              {categories.drinks.map((item) => (
                 <MenuItem key={item.strCategory} value={item.strCategory}>
                   {item.strCategory}
                 </MenuItem>
               ))}
             </TextField>
-            <Button 
-              type="submit" 
-              className={classes.searchBtn} 
-              color="primary" 
-              variant="contained">
-                Search Recipe
+            <Button
+              type="submit"
+              className={classes.searchBtn}
+              color="primary"
+              variant="contained"
+            >
+              Search Recipe
             </Button>
-        </form>
-      </Grid>
-    </Layout>
+          </form>
+        </Grid>
+      </Layout>
     </>
-  )
+  );
 }
 
 export const getStaticProps = async () => {
-  const res = await fetch('https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list');
+  const res = await fetch(
+    'https://www.thecocktaildb.com/api/json/v1/1/list.php?c=list'
+  );
   const categories = await res.json();
   return {
-    props: {categories}
-  }
-}
+    props: { categories },
+  };
+};

@@ -18,9 +18,9 @@ export default function MyApp(props) {
   return (
     <React.Fragment>
       <ThemeProvider theme={theme}>
-          {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
-          <CssBaseline />
-          <Component {...pageProps} />
+        {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+        <CssBaseline />
+        <Component {...pageProps} />
       </ThemeProvider>
     </React.Fragment>
   );

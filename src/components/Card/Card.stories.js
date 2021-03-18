@@ -1,10 +1,9 @@
-import React from 'react'
+import React from 'react';
 import Card from './Card';
 
 export default {
   title: 'Card',
-  component: Card
-}
+  component: Card,
+};
 
-export const Primary = () => <Card variant='primary' />
-
+export const Primary = () => <Card variant="primary" />;

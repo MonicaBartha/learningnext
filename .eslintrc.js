@@ -1,25 +1,32 @@
 module.exports = {
-    "env": {
-        "browser": true,
-        "es2021": true,
-        "jest": true
+  env: {
+    browser: true,
+    es2021: true,
+    jest: true,
+  },
+  extends: [
+    'airbnb',
+    'prettier',
+    'eslint:recommended',
+    'plugin:react/recommended',
+  ],
+  parserOptions: {
+    ecmaFeatures: {
+      jsx: true,
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended"
-    ],
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12,
-        "sourceType": "module"
-    },
-    "plugins": [
-        "react"
-    ],
-    "rules": {
-        'react/jsx-filename-extension': 0,
+    ecmaVersion: 12,
+    sourceType: 'module',
+  },
+  plugins: ['prettier', 'react'],
+  rules: {
+    'no-unused-vars': 'warn',
+    'no-console': 'off',
+    'func-names': 'off',
+    'object-shorthand': 'off',
+    'class-methods-use-this': 'off',
+    'arrow-body-style': 'as-needed',
+    'react/prop-types': ['enabled', { customValidators: 1 }],
+    'react/jsx-filename-extension': 0,
     'function-paren-newline': 0,
     'global-require': 0,
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
@@ -31,6 +38,6 @@ module.exports = {
     'array-callback-return': 0,
     'no-plusplus': ['error', { allowForLoopAfterthoughts: true }],
     'react/jsx-indent': ['error', 2],
-    'semi': ['error', 'always']
-    }
+    semi: ['error', 'always'],
+  },
 };
